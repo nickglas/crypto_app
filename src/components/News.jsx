@@ -1,11 +1,10 @@
 import React from 'react';
-import {Select, Typography, Row, Col, Avatar, Card} from 'antd'
+import { Typography, Row, Col, Avatar, Card} from 'antd'
 import moment from 'moment';
 
 import {useGetCryptoNewsQuery} from '../services/cryptoNewsApi'
 
 const {Text, Title} = Typography
-const {Option} = Select
 
 const demoImage = 'http://coinrevolution.com/wp-content/uploads/2020/06/cryptonews.jpg'
 
@@ -26,7 +25,7 @@ const News = ({simplified}) => {
                 <Title className='news-title' level={4}>
                   {article.name}
                 </Title>
-                <img src={article?.image?.thumbnail?.contentUrl || demoImage} alt='article images' />
+                <img src={article?.image?.thumbnail?.contentUrl || demoImage} alt='article images' style={{maxWidth:'200px', maxHeight:'200px'}}/>
               </div>
               <p>
                 {article.description > 100 ? `${article.description.substring(0,100)}...` : article.description}
