@@ -21,14 +21,14 @@ const Cryptodetails = () => {
 
   if(isFetching) return 'Loading...'
 
-  console.warn(coinHistory);
+  console.warn(data);
 
   const time = ['3h', '24h', '7d', '30d', '1y', '3m', '3y', '5y'];
 
   const stats = [
     { title: 'Price to USD', value: `$ ${cryptoDetails?.price && millify(cryptoDetails?.price)}`, icon: <DollarCircleOutlined /> },
     { title: 'Rank', value: cryptoDetails?.rank, icon: <NumberOutlined /> },
-    { title: '24h Volume', value: `$ ${cryptoDetails?.volume && millify(cryptoDetails?.volume)}`, icon: <ThunderboltOutlined /> },
+    { title: '24h Volume', value: `$ ${cryptoDetails['24hVolume'] && millify(cryptoDetails['24hVolume'])}`, icon: <ThunderboltOutlined /> },
     { title: 'Market Cap', value: `$ ${cryptoDetails?.marketCap && millify(cryptoDetails?.marketCap)}`, icon: <DollarCircleOutlined /> },
     { title: 'All-time-high(daily avg.)', value: `$ ${cryptoDetails?.allTimeHigh?.price && millify(cryptoDetails?.allTimeHigh?.price)}`, icon: <TrophyOutlined /> },
   ];
@@ -111,7 +111,7 @@ const Cryptodetails = () => {
             {cryptoDetails.name} Links
           </Title>
           {cryptoDetails.links.map((link, i) => (
-            <Row className='coin-link' key={link.name}>
+            <Row className='coin-link' key={i}>
               <Title level={5} className='link-name'>
                 {link.type}
               </Title>

@@ -20,10 +20,8 @@ const LineChart = ({coinHistory, currentPrice, coinName}) => {
     coinTimestamp.push(new Date(coinHistory?.data?.history[i].timestamp*1000).toLocaleDateString());
   }
 
-  console.warn(coinTimestamp.reverse());
-
   const data = {
-    labels: coinTimestamp,
+    labels: coinTimestamp.reverse(),
     datasets: [
       {
         label: 'Price in USD',
